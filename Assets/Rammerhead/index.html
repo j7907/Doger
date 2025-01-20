@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://gg.mom-dad-wtf-su-s.cstang.hk/"></iframe>
+
+    <script>
+        const links = [
+            "https://gg.mom-dad-wtf-su-s.cstang.hk/",
+            "https://donatetoafrica.raisepeaceinunity.com/",
+            "https://help.smartknb.com/",
+            "https://foundthe.lostgumball.com/",
+            "https://rammerhead.ageru.malam.or.id/",
+            "https://4h5ute.24-7.ro/",
+            "https://hr3u4t.d-n-s.name/",
+            "https://ijf4u4t.malam.or.id/",
+            "https://this.is.notenoughdew.com/",
+            "https://sighihaventmadeoneoftheseinaminutefr.florianschlueter.eu/",
+            "https://adam.likes.the.burgerbar.cl/",
+            "https://desmosgraphingsimulatorboiiamongus.novipro.ca/",
+            "https://mathreview.macgyver.cf/",
+            "https://gooogleserver-as3.macgyver.cf/",
+            "https://gooogleserver-as4.macgyver.cf/",
+            "https://securitycheck-84238.singleton-home.tk/",
+            "https://ramm-841328.singleton-home.tk/",
+            "https://misto.singleton-home.tk/",
+            "https://841238.singleton-home.tk/",
+            "https://galblease.cisua.tk/",
+            "https://dicemyicargo.interteh.tk/",
+            "https://selling.singleton-home.tk/",
+            "https://travel.frenchconnection.com.br/",
+            "https://hokkaidotravelguide.raikia.com/",
+            "https://thisistheonlydomainthatworkssoimauseit.malagafix.com/",
+            "https://home.wikilegia.at/",
+            "https://it.8bit.ca/",
+            "https://schoolwork.norushcharge.com/",
+            "https://thisistheonlydomainthatworkssoimauseit.malagafix.com/",
+            "https://homework.datagrid.cl/",
+            "https://robotics.eduinnova.cl/",
+            "https://super.vitaldoc.cl/",
+            "https://help-me.undo.cl/",
+            "https://sasaki.kichigai.malam.or.id/",
+            "https://blooket.privatedns.org/",
+            "https://classroom.jamesonlee.com/",
+            "https://free.vbucks.beclicked.com/",
+            "https://free.robux.beclicked.com/",
+            "https://rh.xiaohosting.store/",
+            "https://atamagaitaiyoo.malam.or.id/",
+            "https://dhchcjxh.bestbfs.org/",
+            "https://news.westindiaquay.com/",
+            "https://res.cdn.office.net.eduassignmentsui.voorl.com/",
+            "https://sjhsunblocker.csproject.org/",
+            "https://small-kids.foxgateway.com/",
+            "https://sena-and-jacob-yap-too-much.foxgateway.com/",
+            "https://scienceandmore.spacetechnology.net/",
+            "https://free.vbucks.generator.networkindia.com/",
+            "https://i.am.selling.b33r.us/",
+            "https://free.robux.networkindia.com/",
+            "https://infiniteunblocker.spacetechnology.net/",
+            "https://nicolas.epicger.org/",
+            "https://math.ynbbs.cc/",
+            "https://whoever.uses.this.is.gay.grupomichelle.com/",
+            "https://rmer84238.sookemarinecentre.com/",
+            "https://thesigmagalblease.ynbbs.cc/",
+            "https://galbleasesitermer.sytes.net/",
+            "https://rmerheadgalblease2.spbox.cl/",
+            "https://youright.69.mu",
+            "https://mathproblemsbypedro.poci.cz/",
+            "https://kirbeotimeo.h.gd/",
+            "https://whatthesigma.grupomichelle.com/",
+            "https://jayden-is-the-best.daev.ca/",
+            "https://noguardian.procrastin.ar/",
+            "https://spellcheck.procrastin.ar/",
+            "https://gradehelp.association-solefe.fr/",
+            "https://dontblock.networkoutpost.com/",
+            "https://popteeeee-ranma-3.easterndns.com/",
+            "https://rasuku.ogautomobiles.ch/",
+            "https://teach-tci.hopto.org/",
+            "https://teach-tsii.sytes.net/",
+            "https://teachtci.bounceme.net/",
+            "https://blooket-premium2.hopto.org/",
+            "https://hi.ecosseupsidedown.co.uk/",
+            "https://construction.robinhud.com/",
+            "https://elajournals.20pack.com/",
+            "https://blooket-premium.myftp.org/",
+            "https://elajournals.megajournal.com/",
+            "https://stiriksjdks.easterndns.com/",
+            "https://blooketpremium.zapto.org/",
+            "https://blm.newpowergroup.com/",
+            "https://classroom.google.lain.ch/",
+            "https://classroom.google.nard.ca/",
+            "https://rem.nex.sh/",
+            "https://lightlyweatheredwaxedcutcopperstairs.michiganbowling.com/",
+            "https://lightlyweatheredwaxedcutcopperstairs.michiganbowling.com/",
+            "https://rmershark-unblocker.wxnw.net/",
+            "https://internationaldictionarysearch.succeed.cl/",
+            "https://he-likes-it-in-the-asss.webblu.com.br/",
+            "https://1plus1equalscookie.lizze.org/",
+            "https://galblease.cisua.tk/",
+            "https://dicemyicargo.interteh.tk/",
+            "https://iloveoileduen.minecraft.pe",
+            "https://historygesplay.eithermouse.com/",
+            "https://creayerm.ipv64.net",
+            "https://konnnitiga84237.galaxybbs.net/",
+            "https://mimoza.galaxybbs.net/",
+            "https://weather.tiktok.li/",
+            "https://guava.iiiii.info/",
+            "https://northhigh.ircnet.biz/",
+            "https://obsessedcrossiant.obsidian.hardsoft.nu/",
+            "https://anita-bath.24x7.hk/",
+            "https://honey.businesslipbalm.rren.ch/",
+            "https://mcgrawhill.eichi.net/",
+            "https://noblockme.globalwireandcable.com/",
+            "https://mortsfunfarm.robinhud.com/",
+            "https://ocfreev1.port0.org/",
+            "https://zebrasareprettycool.nex.sh/",
+            "https://rizzler.hbmc.net/",
+            "https://yourmean.1337.cx/",
+            "https://konnnitiga84237.galaxybbs.net/",
+            "https://rammer84238.sookemarinecentre.com/",
+            "https://historygamesplay.eithermouse.com/",
+            "https://rammershark-aa.poptour.com.ar/",
+            "https://september.11.2001.1337.cx/",
+            "https://skibidigyattrizzler.100mountain.net/",
+            "https://dousabo-r--05.hakanaurl.link/",
+            "https://funbags.acompanhantesantoandre.com.br/",
+            "https://mathproblemsbypedro.poci.cz/",
+            "https://galblease2.byalanet.bg/",
+            "https://rmerheadgalblease2.spbox.cl/",
+            "https://galbleasesitermer.sytes.net/",
+            "https://thesigmagalblease.ynbbs.cc/",
+            "https://rmer84238.sookemarinecentre.com/",
+            "https://whoever.uses.this.is.gay.grupomichelle.com/",
+            "https://math.ynbbs.cc/",
+            "https://nicolas.epicger.org/",
+            "https://infiniteunblocker.spacetechnology.net/",
+            "https://toybonnie.e-cloud.ch/",
+            "https://toybonnie.newpowergroup.com/",
+            "https://google.classroom.fairuse.org/",
+            "https://salemmiddleschoolisgood.korvemaker.ca/",
+            "https://godblesstheusa.fmhchile.cl/",
+            "https://bryw.evils.in/",
+            "https://bryw.bsfa.info/",
+            "https://classroom.google.info.gf/",
+            "https://busable.bsfa.info/",
+            "https://aajooonv.ipv64.net/",
+            "https://tem.gersmania.ro/",
+            "https://sodaysislol.nard.ca/",
+            "https://marsschool.youpc.ro/",
+            "https://hellowolrd.edbask.net/",
+            "https://rh.teclbesh.net/",
+            "https://hellokaung.spacetechnology.net/",
+            "https://creerdeslienspourrobloxlanuit.pimp.co.za/",
+            "https://coc1.20pack.com/",
+            "https://livvy.malewolf.com/",
+            "https://dontstop.hackquest.com/",
+            "https://betterthanbradleys.toadfishmonastery.org/",
+            "https://killaharrisfacts.404.mn/",
+            "https://classes.dnet.hu/",
+            "https://hueballheadquarters.lebrija.org/",
+            "https://educationeclipse.cbu.net/",
+            "https://coolsitehuh.tutak.at/",
+            "https://ru.rusi.ch/",
+            "https://chrome.developer.li/",
+            "https://pro.webs.vc/",
+            "https://33.42.ar/",
+            "https://subdomain.worldmostlongest.maybe.unblockproxy.0000004.xyz/",
+            "https://wolfmovieskelvin.pisz.ro/",
+            "https://fol.l.rren.ch/",
+            "https://mathscale.eduinnova.cl/",
+            "https://recovery.florpeter.xyz/",
+            "https://tips.yuanda223.xyz/",
+            "https://launch.broomleigh.com/",
+            "https://magma.aamu.fi/",
+            "https://asdfghjrfty.evils.in/",
+            "https://wdefrgthjyu.evils.in/",
+            "https://zexrctvjykiuln.evils.in/",
+            "https://disireedq1284.blinklab.com/",
+            "https://skibrizz.ahpc.fi/",
+            "https://branglennsucksatbrawlstars.pimp.co.za/",
+            "https://skibidirizz.robinhud.com/",
+            "https://hotdogs.root.sx/",
+            "https://snheredeeenes.corporateadworld.com/",
+            "https://betterrh.lhost.dev/",
+            "https://testmode.lhost.dev/",
+            "https://a-use2-rmrhd.poo.li/",
+            "https://entersphere.spidermaus.de/",
+            "https://dingusiscutenibalet.robinhud.com/",
+            "https://glorydays.nard.ca/",
+            "https://trizzyisthetrueskibiditoiletsigma.mine.bz/",
+            "https://appleglass.farted.net/",
+            "https://f2f42c8be0de.hakanaurl.link/",
+            "https://super.cool.balls.sigma.hardsoft.nu/",
+            "https://lol.zh.obl.ong/",
+            "https://classlink.smelly.cc/",
+            "https://coolmathgames2.home.kg/",
+            "https://agoodname.hbmc.net/",
+            "https://jameswazheretoo-ondiscord.robinhud.com/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://rubyisreal.spacetechnology.net/"></iframe>
+
+    <script>
+        const links = [
+            "https://rubyisreal.spacetechnology.net/",
+            "https://plshelpmeineedtogetawayfrompdiddy-eminem.newpowergroup.com/",
+            "https://brostopdigginginme.depression-anxiety-assessment.com/",
+            "https://immakillmyself.depression-anxiety-assessment.com/",
+            "https://5456025.bryongaskin.net/",
+            "https://funmathsgames.gaminggremlins.com/",
+            "https://chickenwing.chikiyan.cl/",
+            "https://mathisfun.chikiyan.cl/",
+            "https://phantomgames.spynick.com/",
+            "https://ishowspeed-sui.bistaumanga.com.np/",
+            "https://musikersjovt.ourspacemusic.com/",
+            "https://skibidicaddytest.chickenkiller.com/",
+            "https://imfailing.bryongaskin.net/",
+            "https://2140842001.bryongaskin.net/",
+            "https://9970170084.bryongaskin.net/",
+            "https://emerald.iki.my/",
+            "https://emerald2.iki.my/",
+            "https://6782357.bryongaskin.net/",
+            "https://scientificmathtutoring.radarvision.co.za/",
+            "https://phantommathclass.radarvision.co.za/",
+            "https://37473843.bistaumanga.com.np/",
+            "https://ihopeitworks.ctx.cl/",
+            "https://theohasrizz.eduinnova.cl/",
+            "https://schoolwork.ix.tc/",
+            "https://mathtest.uhaneingenieria.mx/",
+            "https://emsz.atelierbellessere.it/",
+            "https://dick.df.cissp.or.id/",
+            "https://greeeeeeeeeeeeeeeeeeeeen.df.cissp.or.id/",
+            "https://shiny.emralds.df.cissp.or.id/",
+            "https://institutionalized.df.cissp.or.id/",
+            "https://your.driving.me.crazy.df.follobusiness.com/",
+            "https://you.the.one.whos.crazy.df.gigaportal.pl/",
+            "https://all.i.wanted.was.a.pepsi.df.stofcheck-ballinger.com/",
+            "https://im.not.crazy.df.webconstructions.co.uk/",
+            "https://uknow.chikiyan.cl/",
+            "https://uknown.chikiyan.cl/",
+            "https://emeraldgoated.jodymaroni.com/",
+            "https://chromakopia.chikiyan.cl/",
+            "https://emerald.spynick.com/",
+            "https://doyouknowwhatsmassive.ens.org/",
+            "https://itsreallymassiveyoufeelme.galipan.org/",
+            "https://imagineifbrinagotalowtaperfade.maryadafoundation.org.np/",
+            "https://dimonand.foxgateway.com/",
+            "https://dannyphantom.foxgateway.com/",
+            "https://education.math.bistaumanga.com.np/",
+            "https://00786.1337.cx/",
+            "https://justalittlesillylinkthatsforlightspeed.ax1951.com/",
+            "https://we-need-more-emerald.ax1951.com/",
+            "https://omganotherlinkholymoly.ax1951.com/",
+            "https://emeraldclassforschooosvc.duckdns.org/",
+            "https://fictionbooksarethebest.bugaloop.com/",
+            "https://frenchfriesdb.circusslaves.com/",
+            "https://imextratight.devwonders.com/",
+            "https://imextratight.meatbytes.com/",
+            "https://emzsrollthedough.partybag.com/",
+            "https://phantommathclassnxcm.duckdns.org/",
+            "https://diamond-ultra.shilnet.com/",
+            "https://proclaim.joaopedroreis.com/",
+            "https://thecowjumpedoverthe.mooo.com/",
+            "https://math.playground.shirokuriwaki.com/",
+            "https://thisisnotgonnabeleakedpalsostop.mooo.com/",
+            "https://blobtown.thebrittainlawfirm.com/",
+            "https://decimalsamistadlatino.us.to/",
+            "https://desmoscalculatorishelpful.de-a.org/",
+            "https://callmediddy.hardsoft.nu/",
+            "https://bomba.soapagent.com/",
+            "https://flower.joaopedroreis.com/",
+            "https://learningabouthistory.niteryder.net/",
+            "https://hichat.nekros.info/",
+            "https://eme.yea.intprosys.net/",
+            "https://kaydenisbackfr.niteryder.net/",
+            "https://uhhhhhhhhhhhhhhhhhhhhhhhhh-how-much-is-that-oh-well.nekros.info/",
+            "https://age-11-is-back.niteryder.net/",
+            "https://hey-man-skibidi.m-bay.net/",
+            "https://youresoveryblest.iamblesterthanifisciadrronol.isoluxltda.cl/",
+            "https://stealcolshatitsfunny.nexuscomputer.com.np/",
+            "https://burgerbutt4.swinco.cl/",
+            "https://burgerbutt2.medscience.cl/",
+            "https://burgerbutt5.ens.org/",
+            "https://ryan.streetathletic.ru/",
+            "https://grantisasillygooseandking.ens.org/",
+            "https://3142055567.isoluxltda.cl/",
+            "https://mukilteosd.iiiii.info/",
+            "https://massachusetts.autoprin.com/",
+            "https://e.streetathletic.ru/",
+            "https://keyboards.mylogisoft.com/",
+            "https://test.scrapitsoftware.com/",
+            "https://energy.aeroantenna.com/",
+            "https://socialstudies.artitech.com/",
+            "https://read.caminobooks.com/",
+            "https://optimize.opticalize.com/",
+            "https://mango.mango.mango.mango.michiganbowling.com/",
+            "https://phantomtest.delusionz.xyz/",
+            "https://0000001qwerty.mydev.co.za/",
+            "https://pantiom.games.gets.deleted.sad.ohbah.com/",
+            "https://software.help.info.asmasoft.com/",
+            "https://schoolsuks.jemix.sg/",
+            "https://jelly.canbesticky.fun.jemix.sg/",
+            "https://sigma-boyz.ghostnation.org/",
+            "https://testingdomain.djstoneworx.club/",
+            "https://i-ate-olivers-feet-when-mason-was-watching.ghostnation.org/",
+            "https://cfisdphantom.jemix.sg/",
+            "https://skibidi.ohio.toilet.jemix.sg/",
+            "https://gettingdeeznuds.spacetechnology.net/",
+            "https://ripct.jemix.sg/",
+            "https://hshhjsghejsashjjhfdxvnjkouhfdsaaxghhgddfzzxcb.jemix.sg/",
+            "https://why-is-oliver-so-stinky.stinksource.com/",
+            "https://testing.delusionz.xyz/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://e650288095498ab0bd2a36d1b6e8d7d8b275afe144ff0e72e85653e2b99d34f.cfd/"></iframe>
+
+    <script>
+        const links = [
+            "https://e650288095498ab0bd2a36d1b6e8d7d8b275afe144ff0e72e85653e2b99d34f.cfd/",
+            "https://spacespace.cfd/",
+            "https://llllllllllllllllllllllllllllllllllllllillllllllllllllllllllllll.cfd/",
+            "https://spacespacespace.cfd/",
+            "https://spaceiscool.cfd/",
+            "https://nightnet.divertednetworks.net/",
+            "https://sleepy.divertednetworks.net/",
+            "https://university.divertednetworks.net/",
+            "https://elementaryschool.estudioferrer.com/",
+            "https://middleschool.estudioferrer.com/",
+            "https://highschool.estudioferrer.com/",
+            "https://college.estudioferrer.com/",
+            "https://alfredgwaters.estudioferrer.com/",
+            "https://studiolearnmusic.estudioferrer.com/",
+            "https://tfuexpress.estudioferrer.com/",
+            "https://aptrighelp.estudioferrer.com/",
+            "https://artgeometry.estudioferrer.com/",
+            "https://calculushelp.estudioferrer.com/",
+            "https://classmathyawd1cloudfro1ntestylogelasciedaks.estudioferrer.com/",
+            "https://00.space00.mooo.com/",
+            "https://d1clcloudfrontz3o049kdlelogowokeupit2930.twilightparadox.com/",
+            "https://nav.apusapps.jumpingcrab.com/",
+            "https://atompracticeclock98calander23.crabdance.com/",
+            "https://ayohigoguardianadmin.kts2.com.np/",
+            "https://shadowsurf.fredrikkivi.se/",
+            "https://theageofthe.94bl.com/",
+            "https://iwannago.home.kg/",
+            "https://somequesidillas.quilmes.gob.ar/",
+            "https://iamtotallya.epicgamer.org/",
+            "https://wowinterstellar.divertednetworks.net/",
+            "https://spacef1.ibewlocalzero.com/",
+            "https://spacef2.bege.ro/",
+            "https://spacef3.samantacatto.com/",
+            "https://spacef4.devimontreal.com/",
+            "https://spacef5.intelisist.cl/",
+            "https://didhe.party.jlengineering.se/",
+            "https://politics.yeah.sighold.com/",
+            "https://cars-r-co0l.smartpettherapy.com/",
+            "https://nightnet-is-cool.cissp.or.id/",
+            "https://jshlatt-is-sigma.cissp.or.id/",
+            "https://off.alderaeney.xyz/",
+            "https://rex.cassain.com.ar/",
+            "https://sop.jumpconsulting.cl/",
+            "https://wa.mecanicatecnicar.com.ar/",
+            "https://real.media-sud.ro/",
+            "https://cat.giripawan.com.np/",
+            "https://po.itparadiis.eu/",
+            "https://ae.leodealmagro.com.ar/",
+            "https://no.uglisounds.se/",
+            "https://wowaaa.twilightparadox.com/",
+            "https://dentist.johanson.ee/",
+            "https://coca.icmatch.com/",
+            "https://robles.freengers.com/",
+            "https://sigma.thecarrollsite.com/",
+            "https://sum.setter.lv/",
+            "https://family.topcargoteam.cl/",
+            "https://school.vrancea.org/",
+            "https://spider.rocketpride.com/",
+            "https://noob.theinoob.com/",
+            "https://kool.ligowski.com/",
+            "https://yummy.chowpatty.com/",
+            "https://gambling.whiskydice.com/",
+            "https://cheese.rigelmoon.com.ar/",
+            "https://car.easychargebatteries.com/",
+            "https://class.happymosaic.ru/",
+            "https://panda.binod-khadka.com.np/",
+            "https://pan.68913.com/",
+            "https://snake.enuse.tk/",
+            "https://member.rajatbhattarai.com.np/",
+            "https://cold.sachhot.com/",
+            "https://internet.mindhackers.org/",
+            "https://luck.jasoncoyne.com/",
+            "https://unicorn.taiwansemicon.org/",
+            "https://pader.twilightparadox.com/",
+            "https://project.mapupraxis.cl/",
+            "https://trave.erezerwacja24.pl/",
+            "https://gmp.cgbackup1.xyz/",
+            "https://frog.savwhatsup.info/",
+            "https://sec09.bijayrimal234.com.np/",
+            "https://sad.individual-sorrow.xyz/",
+            "https://out.lebedevphoto.ru/",
+            "https://perfect.saturdaynitespecial.ca/",
+            "https://go.theapitoolbox.com/",
+            "https://huzz.rustyfoundation.com/",
+            "https://bark.rogerthedog.com/",
+            "http://nerds.ladatap.com/",
+            "https://fart.bellywings.com/",
+            "https://meowman.alte.ca/",
+            "https://inspace.myhousesetup.com/",
+            "https://outerspace.ppalma.cl/",
+            "https://spacegravity.robonauts.net/",
+            "http://spaceman.shareroute.org/",
+            "https://spacetrip.shogun.ca/",
+            "https://spaceee.cloudranger.net/",
+            "https://spaceee.lain.ch/",
+            "https://spaceee.qthome.org/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

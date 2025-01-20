@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://desmos.ubgusa.com/"></iframe>
+
+    <script>
+        const links = [
+            "https://desmos.ubgusa.com/",
+            "https://classroom.kazw.net/",
+            "https://math.algebraicformulas.org/",
+            "https://classroom.kazwi.re/",
+            "https://desmos.usascholars.org/",
+            "https://desmos.usascholars.org/",
+            "https://ubgus.net/",
+            "https://math.kazwi.com/",
+            "https://math.kazw.net/",
+            "https://classroom.geographyles.com/",
+            "https://math.geographyles.com/",
+            "https://classroom.physicsbutfun.com/",
+            "https://band-lessons.com/",
+            "https://math.universitylookup.org/",
+            "https://desmos.kazadverts.org/",
+            "https://algebra.flashcarder.net/",
+            "https://algebra.kazadverts.org/",
+            "https://math.kazw.net/",
+            "https://kazwi.re/",
+            "https://desmos.ubgusa.com/",
+            "https://math.kazwi.com/",
+            "https://classroom.ubgus.net/",
+            "https://math.ubgusa.com/",
+            "https://ubgus.net/",
+            "https://classroom.ubgus.net/",
+            "https://kazwi.re/",
+            "https://classroom.geographyles.com/",
+            "https://math.universitylookup.org/",
+            "https://classroom.band-lessons.com/",
+            "https://math.flashcarder.net/",
+            "https://desmos.algebraicformulas.org/",
+            "https://band-lessons.com/",
+            "https://algebra.ubgus.net/",
+            "https://desmos.ubgusa.com/",
+            "https://universitylookup.org/",
+            "https://math.algebraicformulas.org/",
+            "https://algebra.kazw.net/",
+            "https://classroom.band-lessons.com/",
+            "https://desmos.ubgusa.com/",
+            "https://math.kazweb.net/",
+            "https://desmos.kazwi.re/",
+            "https://desmos.algebraicformulas.org/",
+            "https://algebra.geographyles.com/",
+            "https://algebra.physicsbutfun.com/",
+            "https://desmos.flashcarder.net/",
+            "https://classroom.algebraicformulas.org/",
+            "https://geographyles.com/",
+            "https://classroom.universitylookup.org/",
+            "https://algebra.universitylookup.org/",
+            "https://algebra.band-lessons.com/",
+            "https://math.band-lessons.com/",
+            "https://math.flashcarder.net/",
+            "https://classroom.physicsbutfun.com/",
+            "https://classroom.algebraicformulas.org/",
+            "https://desmos.algebraicformulas.org/",
+            "https://desmos.kazwi.re/",
+            "https://band-lessons.com/",
+            "https://math.algebraicformulas.org/",
+            "https://math.physicsbutfun.com/",
+            "https://desmos.ubgusa.com/",
+            "https://math.usascholars.org/",
+            "https://classroom.algebraicformulas.org/",
+            "https://usascholars.org/",
+            "https://algebra.band-lessons.com/",
+            "https://math.geographyles.com/",
+            "https://math.geographyles.com/",
+            "https://desmos.kazwi.com/",
+            "https://ubgusa.com/",
+            "https://kazwi.re/",
+            "https://kazwi.com/",
+            "https://classroom.physicsbutfun.com/",
+            "https://classroom.flashcarder.net/",
+            "https://algebra.band-lessons.com/",
+            "https://desmos.geographyles.com/",
+            "https://algebra.kazw.net/",
+            "https://math.kazwi.re/",
+            "https://usascholars.org/",
+            "https://classroom.geographyles.com/",
+            "https://classroom.geographyles.com/",
+            "https://algebra.flashcarder.net/",
+            "https://math.geographyles.com/",
+            "https://algebra.geographyles.com/",
+            "https://math.kazw.net/",
+            "https://math.kazw.net/",
+            "https://algebra.geographyles.com/",
+            "https://universitylookup.org/",
+            "https://classroom.kazadverts.org/",
+            "https://desmos.flashcarder.net/",
+            "https://algebra.kazwi.re/",
+            "https://math.kazw.net/",
+            "https://desmos.ubgusa.com/",
+            "https://classroom.algebraicformulas.org/",
+            "https://math.kazwi.com/",
+            "https://algebra.flashcarder.net/",
+            "https://kazadverts.org/",
+            "https://algebra.band-lessons.com/",
+            "https://flashcarder.net/",
+            "https://math.universitylookup.org/",
+            "https://math.ubgus.net/",
+            "https://desmos.kazwi.re/",
+            "https://ubgusa.com/",
+            "https://classroom.geographyles.com/",
+            "https://math.geographyles.com/",
+            "https://math.kazweb.net/",
+            "https://math.physicsbutfun.com/",
+            "https://desmos.band-lessons.com/",
+            "https://algebra.kazadverts.org/",
+            "https://math.usascholars.org/",
+            "https://classroom.ubgus.net/",
+            "https://math.kazadverts.org/",
+            "https://desmos.geographyles.com/",
+            "https://algebra.kazwi.com/",
+            "https://math.kazwi.re/",
+            "https://math.ubgusa.com/",
+            "https://desmos.ubgusa.com/",
+            "https://algebra.ubgusa.com/",
+            "https://algebra.geographyles.com/",
+            "https://math.kazwi.com/",
+            "https://math.kazwi.re/",
+            "https://math.band-lessons.com/",
+            "https://classroom.physicsbutfun.com/",
+            "https://desmos.flashcarder.net/",
+            "https://algebra.usascholars.org/",
+            "https://classroom.kazwi.com/",
+            "https://desmos.kazwi.com/",
+            "https://math.ubgus.net/",
+            "https://kazweb.net/",
+            "https://desmos.universitylookup.org/",
+            "https://geographyles.com/",
+            "https://physicsbutfun.com/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

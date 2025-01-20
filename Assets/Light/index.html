@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://runthe.adnetworks.cl/"></iframe>
+
+    <script>
+        const links = [
+            "https://runthe.adnetworks.cl/",
+            "https://lighteducation.billblog.co.uk/",
+            "https://lookthrough.jakesthoughts.xyz/",
+            "https://workingwith.lwmusic.ca/",
+            "https://learnwith.plgsync.com/",
+            "https://spacedrops.j34n.net/",
+            "https://bestsites.idialup.co.za/",
+            "https://cookingwithdtd.propaint.com.mx/",
+            "https://needtomakethese.exid.me/",
+            "https://crazyiwascrazyonce.comit.com.ar/",
+            "https://learnwithlight.tuevnord.hk/",
+            "https://thesenamesarelazy.mr24.co/",
+            "https://perfectprogramming.lan-mb.si/",
+            "https://lighteducation.aberegg-immobilien.ch/",
+            "https://glazingonspace.henher.com/",
+            "https://secretsites.achpnl.cl/",
+            "https://programmingclass.amuck.xyz/",
+            "https://thelightlight.simonsarray.cl/",
+            "https://school.tekbudhathoki.com.np/",
+            "https://speedrunning.mecofinsa.com.ar/",
+            "https://thebestmathsite.masgas.cl/",
+            "https://literallyme.media-sud.ro/",
+            "https://lightvfourhype.obsession.com.ve/",
+            "https://idkwhattoputhere.spuriouscode.com/",
+            "https://notschool.topgeartaps.co.uk/",
+            "https://light.andeschileong.cl/",
+            "https://dawnedu.arterapia.com.ar/",
+            "https://evasi.marriottve.com/",
+            "https://duskedu.rajeevjha.com.np/",
+            "https://nightedu.wellent.hk/",
+            "https://crllect.walo-hp.ch/",
+            "https://stella-dev.unshush.hr/",
+            "https://stella.jbat.com.np/",
+            "https://stella-dev.iaxia.cl/",
+            "https://imma-stella.djarvi.com/",
+            "https://stella.diegonunez.com.ar/",
+            "https://crllect.skrypter.com/",
+            "https://kdust7-dev.2028.cl/",
+            "https://dust.inthepress.org/",
+            "https://crllect-dev.itcont.cl/",
+            "https://noctra.zbyongyou.com/",
+            "https://noctra.contraprivatizacao.com.br/",
+            "https://amplify.astrocenter.com.br/",
+            "https://amplify.bhandaribijay.com.np/",
+            "https://amplify.bsmart-solutions.com.my/",
+            "https://dust.tabernacledekolwezi.org/",
+            "https://kdust7.stefneyv.com/",
+            "https://kdust7.agslofdalgezina.co.za/",
+            "https://crllect.thisoldrack.com/",
+            "https://crllect.boarini.com.ar/",
+            "https://amplify.gpic.com.np/",
+            "https://amplify.kanacad.org/",
+            "https://noctra.everich-airfreight.com/",
+            "https://noctra.musdi.web.id/",
+            "https://noctra.ashishlama.com.np/",
+            "https://assemblestuff.ikea-bistro.us/",
+            "https://dusktilldawn.is-really.pro/",
+            "https://schoolonly.kanacad.org/",
+            "https://top10educationalsites.natbees.cl/",
+            "https://lightnight.praudit.ro/",
+            "https://redclip.blueclip.cl/",
+            "https://statehistory.ontariobsd.org/",
+            "https://ilivein.thisoldrack.ca/",
+            "https://makinglinks.arepropiedades.cl/",
+            "https://energysources.engematica.info/",
+            "https://foodhealth.capnhat.net/",
+            "https://dusktilldawnlight.claybert.com/",
+            "https://linksforlight.dapi.com.ar/",
+            "https://smartifyseptember.ilosno.cl/",
+            "https://programming101.murighiol.ro/",
+            "https://ihavealife.rancochile.cl/",
+            "https://justkidding.marriottpg.net.ve/",
+            "https://brilliantmath.gs-zgrgosevica.hr/",
+            "https://okwhatarethese.bishallimbu.com.np/",
+            "https://lighteducation.imdb.gq/",
+            "https://codingedu.aberegg-immobilien.ch/",
+            "https://lightisthebest.bonaire.tk/",
+            "https://knowwhereyoulive.daya.tw/",
+            "https://funthingstodo.hardsoft.com.ar/",
+            "https://firesaftey.invelez.cl/",
+            "https://sorryfornotmakinglinks.skope.net.au/",
+            "https://imsucha.techdog21.com/",
+            "https://dontgetsecurityflagged.vomytdaug.info/",
+            "https://lighteverynight.akuma.me/",
+            "https://newdreams.newhopes.info/",
+            "https://smartlights.chickenkiller.com/",
+            "https://forgottomakethese.tgmall.co/",
+            "https://top10educationalsites.yidiyou.org/",
+            "https://godlikepowers.vivocolor.cl/",
+            "https://lactoseintolerant.dairymountain.ca/",
+            "https://respectstuff.dl748.me/",
+            "https://stop-jibberish.rillon-leaplaza.cl/",
+            "https://sleepingthroughthenight.wesp.fi/",
+            "https://nomagazine.yesmagazine.com.np/",
+            "https://weteachatlight.microtract.xyz/",
+            "https://englishforlife.himanchalcabin.com.np/",
+            "https://nightlightdevscooking.ecogardenconstruct.ro/",
+            "https://kidseducation.tercercanal.com/",
+            "https://onemoreminute.unavida.cl/",
+            "https://letmeseethatlinkrealquick.iaxia.cl/",
+            "https://ilovemakingstuff.zoho.to/",
+            "https://summercool.valheim.co.za/",
+            "https://lightspeedisevil.devenam.com/",
+            "https://nopainnogain.tilaktharu.com.np/",
+            "https://interstellarsucks.boarini.com.ar/",
+            "https://lighttheway.cerredes.cl/",
+            "https://pridemonthforever.fericean.ro/",
+            "https://idonthaveanynames.avalonproperty.ro/",
+            "https://waitingforsmartify.ecogardenconstruct.ro/",
+            "https://iknowwhereyoulive.kanacad.org/",
+            "https://lightteaching.ecogardenconstruct.ro/",
+            "https://noctraampllifyarew.iaxia.cl/",
+            "https://lightsarecool.cyberroma.net/",
+            "https://winningthisbet.medscience.cl/",
+            "https://welovejones.indianawx.us/",
+            "https://canidothis.ofc.com.ru/",
+            "https://pullingallnighters.us.to/",
+            "https://thenightlight.boarini.com.ar/",
+            "https://halfwaythere.situskita.net/",
+            "https://lightispeak.arterapia.com.ar/",
+            "https://interstellarsucks.boarini.com.ar/",
+            "https://learnwithlight.ih4a.co.za/",
+            "https://lighteducation.us.to/",
+            "https://speedoflight.us.to/",
+            "http://greenlightyellowlight.redlight.li/",
+            "https://stopdrinking.heliumcola.com/",
+            "https://whatdoyouevencallthese.boarini.com.ar/",
+            "https://mountain.notenoughdew.com/",
+            "https://hospitals.healthlink-test.ch/",
+            "https://this-is.network-xxiii.net/",
+            "https://brawl.starscene.com/",
+            "https://doyouknow.howtogetababytosleep.net/",
+            "https://vendfr.muckrun.co.za/",
+            "https://iama19yearoldcanadiangirlwhodrinksalot.bal-tazaar.be/",
+            "https://supersurge.apollohypnotherapy.co.uk/",
+            "https://vendspeedruns.smarter-homes.co.uk/",
+            "https://teamwiping.maxcold.ru/",
+            "https://camp.carvanfamily.com/",
+            "https://aura.posambient.com/",
+            "https://deltamath.assign.decsei.ro/",
+            "https://ghostrunner-99.csdue.it/",
+            "https://docs.softio.ro/",
+            "https://ngo.car.wherecaniride.com/",
+            "https://no-one-is-here.404.mn/",
+            "https://ninja.localghost.org/",
+            "https://nope.mindboggle.us/",
+            "https://nightlights.citytime.cl/",
+            "https://nothing-less.partybag.com/",
+            "https://iwanttobealightemployee.cissp.or.id/",
+            "https://ihatedarkthings.cissp.or.id/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

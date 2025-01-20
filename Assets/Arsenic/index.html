@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://science4kids.port0.org/"></iframe>
+
+    <script>
+        const links = [
+            "https://science4kids.port0.org/",
+            "https://mathclass4children-k12.ftp.sh/",
+            "https://0lightspeedworks0.saugatnepal.com.np/",
+            "https://arsenic.everydaymath.saugatnepal.com.np/",
+            "https://sixteen.hitekplacements.net/",
+            "https://addition.magiklearning.com/",
+            "https://ls.hrowhxkgiw.chikiyan.cl/",
+            "https://krishkrosh.eduinnova.cl/",
+            "https://a1234a.eduinnova.cl/",
+            "https://simplistic-uducation.eduinnova.cl/",
+            "https://1542x1.eduinnova.cl/",
+            "https://sigma4.chikiyan.cl/",
+            "https://sigma3.calmwhiteroom.com/",
+            "https://sigma2.eduinnova.cl/",
+            "https://sigma1.bistaumanga.com.np/",
+            "https://support.alakaforestm.com/",
+            "https://lunareclipse.criptorg.net/",
+            "https://elsigma.menumarbella.cl/",
+            "https://elsigma2.menumarbella.cl/",
+            "https://elsigma3.menumarbella.cl/",
+            "https://elsigma4.menumarbella.cl/",
+            "https://elsigma5.menumarbella.cl/",
+            "https://athletics.streetathletic.ru/",
+            "https://shibbyiscool.dob.jp/",
+            "https://slpelkaka.cupalica.com.ar/",
+            "https://symphonyskibi.pervers.ch/",
+            "https://gsdfghhihini.quilmes.gob.ar/",
+            "https://asdasdasdhdfgdfgbdfvdfv.twilightparadox.com/",
+            "https://gdggrgesplsus.cbu.net/",
+            "https://absoulesoka.cervezamolay.com/",
+            "https://asdasdfewe.nard.ca/",
+            "https://qdqwdvwcsdvszxc.yimelo.com/",
+            "https://asdasdasdeeferf.zambeezee.com/",
+            "https://lincoln.nya.pub/",
+            "https://byalanetmembershippremium.byalanet.bg/",
+            "https://eichilearningservice.eichi.net/",
+            "https://donatefortheworthy.guillemjafer.es/",
+            "https://edshellaipoweredbyraidshadowlegends.redshell-ai.com/",
+            "https://riceforchange.riceonmars.space/",
+            "https://infinite.lightspeed.inulled.xyz/",
+            "https://math.lplus.pw/proxy/proxy.html"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

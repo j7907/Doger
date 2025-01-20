@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://math.focr.sg/"></iframe>
+
+    <script>
+        const links = [
+            "https://math.focr.sg/",
+            "https://4theboyz.spacetechnology.net/",
+            "https://bagel-math.uhaneingenieria.mx/",
+            "https://hilol.uhaneingenieria.mx/",
+            "https://timmydonthaverice.gigaportal.pl/",
+            "https://hermanisnothim.pimp.co.za/",
+            "https://vip2.joaopedroreis.com/",
+            "https://math.is.awesome.thebrittainlawfirm.com/",
+            "https://printable.math.sheets.thebrittainlawfirm.com/",
+            "https://school.rules.fun.thebrittainlawfirm.com/",
+            "https://school.rules.fun.thebrittainlawfirm.com/",
+            "https://school.rules.fun.thebrittainlawfirm.com/",
+            "https://vip3.joaopedroreis.com/",
+            "https://wedding.joaopedroreis.com/",
+            "https://login.lipizzanregistry.com/",
+            "https://workers.newpowergroup.com/",
+            "https://medical.centrodiagnosticogenetico.com/",
+            "https://medicine.centrodiagnosticogenetico.com/",
+            "https://learncomputers.kalbas.com.vn/",
+            "https://lmath.cecatronica.cl",
+            "https://llearning.mastercs16.com",
+            "https://labout.soskutiko.info",
+            "https://llearn.stofcheck-ballinger.com",
+            "https://llearn.thebrittainlawfirm.com",
+            "https://llearn.planetary-drives.com",
+            "https://lsearch.designjobs.eu",
+            "https://ljokes.saer-emploi.com",
+            "https://lrunner.spbox.cl",
+            "https://ltravel.lan-mb.si",
+            "https://school.work.crabdance.com/",
+            "https://wiki.pedia.sundby.com/",
+            "https://love.math.crabdance.com/",
+            "https://alien.atack.jundy.org/",
+            "http://questions.linville.net/",
+            "http://oh-no.acquyvienthongcu.com/",
+            "https://blessed.elsalvadormundial.com/",
+            "https://armmfdn2nvzbr4furja7mi6cbrkyuafsvcwczfzqw80mkikcnqy2bfqffnmtar.gallo955.com.ar/",
+            "https://xn--11b9de2ac9f.freedns.chromebook.digital/",
+            "https://school.frii.site/",
+            "https://thisis.foryourviewingpleasure.com/",
+            "http://schoolsucks.epicger.org/",
+            "https://nc-is-gay.uk.to/",
+            "https://proxycreator-shadowbrowser.f5.si/",
+            "https://xn--ujdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.cpeonatosmunicipalesarroyomolinos.org/",
+            "https://jny7gJz5kqFT4ED0TaiZLDEWA1G3Lfskm9gauWpFZyosCH3ydezT6tftwypTdgw.cederfeldt.se/",
+            "https://z8wojd3e88ez0p1wgzpurt5uqubso7wxz6ewdcbbgqemgwscjhrvj7qceztyq6x.it123.ru/",
+            "https://glvdyya6wtc18jmqdn6cpnf4yuocqsri3ycekwpjzxpjkbx0td2y2givfle37hk.hahn-itc.de/",
+            "https://petrolog-clutch-biannual-valley-logo-maybe.defender24hs.com.br/",
+            "https://specific-tibia-tad-flutist-taproot-bulge.quake9999.com/",
+            "https://learncomputers.kalbas.com.vn/",
+            "https://ddddsaassddd3.mooo.com/",
+            "https://math.focr.sg/",
+            "https://marcusisawatermelonmuncher.cstang.hk/",
+            "https://seanlikedicknballs.focr.sg/",
+            "https://art.cstang.hk/",
+            "https://orionhasa13inchdickverticle.cstang.hk/",
+            "https://zachisatastysnack.cstang.hk/",
+            "https://learning.mastercs16.com/",
+            "https://w0mpw0mp.mastercs16.com/",
+            "https://schooling.gurdit.com/",
+            "https://learncomputers.kalbas.com.vn/",
+            "https://betteredu.gurdit.com/",
+            "https://4kaomdf1.ints.f5.si",
+            "https://baby.as.shadowshark.ipv64.net",
+            "https://5nwraiqfgz7z7uiv.mathmathmath.ipv64.net",
+            "https://evony.laviewddns.com/",
+            "https://learn.stofcheck-ballinger.com/",
+            "https://jokes.saer-emploi.com/",
+            "https://jny7gjz5kqft4ed0taizldewa1g3lfskm9gauwpfzyosch3ydezt6tftwyptdgw.cederfeldt.se/",
+            "https://portal.kage5.any.ipv64.net/",
+            "https://rojeri666br99.opticalize.com/",
+            "https://education.jodymaroni.com/",
+            "https://funmathedu.masplenedigitalworld.com/",
+            "https://books.bsfa.info/",
+            "https://justdoinghomework.thebrittainlawfirm.com/",
+            "https://classroom.bsfa.info/",
+            "https://base.diveyez.com/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

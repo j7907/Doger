@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="http://btwdontmasshare-ifgetsblocked-iwillremovethelink.yuanda223.xyz/"></iframe>
+
+    <script>
+        const links = [
+            "http://btwdontmasshare-ifgetsblocked-iwillremovethelink.yuanda223.xyz/",
+            "https://shorturl.at/jp9rn",
+            "https://deezbananas.cc/",
+            "https://gam3s-0f-curs3d.netlify.app/",
+            "https://thestoreselection.com/",
+            "holymolyimasupercoolsigma84.masplenedigitalworld.com",
+            "http://oldaccguiop.agguiopz.ip-dynamic.org/",
+            "http://fleshpanopticon.agguiopz.ip-dynamic.org/",
+            "http://ineedmoreips.agguiopz.ip-dynamic.org/",
+            "http://privlinkig.agguiopz.ip-dynamic.org/",
+            "http://tutorialig.agguiopz.ip-dynamic.org/",
+            "http://isthishelloworldforyou.agguiopz.ip-dynamic.org/",
+            "http://olncavior.agguiopz.ip-dynamic.org/",
+            "http://yeepsisthebestgameintheworldandyoucantchangemymindgorillatagsuk.nite.cbass92.org/",
+            "http://justlettinuguysknowiloveyeepsandmyvrusernameisfreakyfunoculusvr.nite.cbass92.org/",
+            "http://thestarsinthedesert.hotunix.com/",
+            "https://therealwebsite.pages.dev/",
+            "thatfeelingwhenknee.vercel.app",
+            "http://icanmakemoresitesstupid.puffballofevil.com/",
+            "https://fibnight.nite.cbass92.org/projects.html",
+            "https://dream.v0id.nl/",
+            "https://yummers.burgerbar.cl/",
+            "https://seleniteiscoolsoyeah.strangled.net/",
+            "https://skys.booty.hair/",
+            "https://whatthefrogiee.ddnsguru.com/",
+            "http://sphere-sport.apps.dj/",
+            "http://safe-selection.assenov.net/",
+            "http://goofy-nonstop.strangled.net/",
+            "http://notread.silksky.com/",
+            "http://home.sibmed.org.ru/",
+            "http://dashboard.newpowergroup.com/",
+            "https://portal.stofcheck-ballinger.com/",
+            "https://pangea.stofcheck-ballinger.com/",
+            "https://http//dashboard.laptopy.nl/",
+            "https://home.nghia.cyou/",
+            "https://seleniteiscoolsoyeah.bot.nu/",
+            "https://little.v0id.nl/",
+            "https://big.v0id.nl/",
+            "goegraphyandotherstuff.savenewport.com",
+            "https://defnotselenite.pakasak.com/",
+            "https://learn-2-cook.2gfkitchen.com/",
+            "https://chubbslovesselenite.panel-laboralcj.gob.mx/",
+            "https://land.refillmaker.com/",
+            "https://dream.v0id.nl/",
+            "https://brays.atomybomb.com/",
+            "https://hop.refillmaker.com/",
+            "https://learn.follobusiness.com/",
+            "https://skys.follobusiness.com/",
+            "https://ronaldosui9.streetathletic.ru/",
+            "http://sellma2t.webconstructions.co.uk/",
+            "https://netflixa.blacknapkins.org/",
+            "p.diddy.df.webconstrustions.co.uk",
+            "Jacobiscool.jemix.sg",
+            "https://math.minnsroad.com/",
+            "https://jaxons-kfc.ens.org/",
+            "https://http//bradleywiddlesisgrippy.teiton.com/",
+            "https://mrbeastlikesbreakdancing.chikiyan.cl/",
+            "http://bradlywiddlesisgrippy.teition.com/",
+            "https://mathtestprep.bistaumanga.com.np/",
+            "6372882728.bryongaskin.net",
+            "sewafw.bistaumanga.com.np",
+            "selenite.spynick.com",
+            "SJSU.edu.lakeballs.fi",
+            "https://mason-selenite.sus.zanity.net/",
+            "https://cooking.wit.kya.webconstructions.co.uk/",
+            "https://selenite.global.ssl.fastly.net/",
+            "Rizzparty.mooo.info",
+            "rizzparty.mooo.info.skibidi",
+            "Selenite.cc.rizzparty.moocowy",
+            "kennysgames.on.fleek.co",
+            "https://mason-selenite.sus.zanity.net/",
+            "https://cooking.wit.kya.webconstructions.co.uk/",
+            "https://mathtestprep.bistaumanga.com.np/",
+            "https://mrbeastlikesbreakdancing.chikiyan.cl/",
+            "https://land.refillmaker.com/",
+            "https://dream.v0id.nl/",
+            "https://brays.atomybomb.com/",
+            "https://hop.refillmaker.com/",
+            "https://learn.follobusiness.com/",
+            "http://home.sibmed.org.ru/",
+            "http://dashboard.newpowergroup.com/",
+            "https://portal.stofcheck-ballinger.com/",
+            "https://pangea.stofcheck-ballinger.com/",
+            "https://http//dashboard.laptopy.nl/",
+            "http://oldaccguiop.agguiopz.ip-dynamic.org/",
+            "http://fleshpanopticon.agguiopz.ip-dynamic.org/",
+            "http://ineedmoreips.agguiopz.ip-dynamic.org/",
+            "http://privlinkig.agguiopz.ip-dynamic.org/",
+            "http://tutorialig.agguiopz.ip-dynamic.org/",
+            "http://isthishelloworldforyou.agguiopz.ip-dynamic.org/",
+            "http://olncavior.agguiopz.ip-dynamic.org/",
+            "https://loser.co.df.cissp.or.id/",
+            "http://lsco.df.cissp.or.id/",
+            "http://they.are.controlling.you.df.cissp.or.id/",
+            "http://prison.df.cissp.or.id/",
+            "http://loser.co.is.goated.df.cissp.or.id/",
+            "http://keep.it.freaky.df.cissp.or.id/",
+            "http://entertain.my.faithh.df.cissp.or.id/",
+            "http://everlong.df.cissp.or.id/",
+            "http://feel.good.inc.df.cissp.or.id/",
+            "http://lean.with.it.rock.with.it.df.cissp.or.id/",
+            "http://notion.df.cissp.or.id/",
+            "https://asster.df.cissp.or.id/",
+            "http://asster.man.is.sigma.df.cissp.or.id/",
+            "http://kom.is.sigma.df.cissp.or.id/",
+            "http://wasdwasdwasdwasdwasdwasd.df.cissp.or.id/",
+            "http://happy.holidays.df.cissp.or.id/",
+            "http://the.line.df.cissp.or.id/",
+            "http://greetings.huzz.df.cissp.or.id/",
+            "http://r.i.p.dumpsterfire.and.lucid.df.cissp.or.id/",
+            "https://learn.follobusiness.com/",
+            "https://hce.hkieca.com/",
+            "https://who.about.sismonda.com.ar/",
+            "https://home.sibmed.org.ru/",
+            "https://bc.hkieca.com/",
+            "https://aydenisanunc.razorlan.info/",
+            "http://loser.co.is.goated.df.cissp.or.id/",
+            "http://they.are.controlling.you.df.cissp.or.id/",
+            "http://prison.df.cissp.or.id/",
+            "http://keep.it.freaky.df.cissp.or.id/",
+            "http://get.the.fuck.out.of.my.face.df.cissp.or.id/",
+            "http://entertain.my.faithh.df.cissp.or.id/",
+            "http://everlong.df.cissp.or.id/",
+            "http://feel.good.inc.df.cissp.or.id/",
+            "http://lean.with.it.rock.with.it.df.cissp.or.id/",
+            "http://notion.df.cissp.or.id/",
+            "http://tv.off.df.cissp.or.id/",
+            "http://all.i.ever.wanted.was.a.black.grand.national.df.cissp.or.id/",
+            "http://fuck.being.rational.df.cissp.or.id/",
+            "http://give.em.what.they.ask.for.df.cissp.or.id/",
+            "http://its.not.enough.df.cissp.or.id/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

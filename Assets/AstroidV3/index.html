@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://maths.bot.nu/"></iframe>
+
+    <script>
+        const links = [
+            "https://maths.bot.nu/",
+            "https://learning.sailtheuniverse.com/",
+            "https://studying.themoosebarn.com/",
+            "https://authorization.kreditmurah.com/",
+            "https://decimals.amistadlatina.nsw.edu.au/",
+            "https://maths.verymad.net/",
+            "https://numberlines.laserbylily.ca/",
+            "https://englishclass.photo-frame.com/",
+            "https://we.internet-slackers.us/",
+            "https://computer-science.rabbitforge.xyz/",
+            "https://nomoregames.jamesonlee.com/",
+            "https://maths.timekeeper.ro/",
+            "https://algebra.mindhackers.org/",
+            "https://astroid.gg/",
+            "https://mathsclass.mooo.com/",
+            "https://englishclass.uk.to/",
+            "https://astroid.wtf/",
+            "https://spreadingpropagandathroughlinks.mywire.org/",
+            "https://mrsandman.hotunix.com/",
+            "https://english.hotunix.com/",
+            "https://math.hotunix.com/",
+            "https://dream.hotunix.com/",
+            "https://notscience.isoluxltda.cl/",
+            "https://jamaliddrisu.ens.org/",
+            "https://schoolregulations.jamesonlee.com/",
+            "https://laweducation.thebrittainlawfirm.com/",
+            "https://howtocook.florpeter.xyz/",
+            "https://demontoenail.0000004.xyz/",
+            "https://iwannafart.mooo.com.mooo.com/",
+            "https://astroid.mywire.org/",
+            "https://algebramaths.duckdns.org/",
+            "https://mathwarriors.root.sx/",
+            "https://memesarefunny.undo.it/",
+            "https://math.nebulagaming.us/",
+            "https://astroidonearth.zubcu.com/",
+            "https://coloringbooksforkids.samirani.com/",
+            "https://bubblycanmuncher.megaokazii.ro/",
+            "https://puffedchips.allez.la/",
+            "https://imsofunni.allez.la/",
+            "https://cheesyhotdog.crabdance.com/",
+            "https://thesecretdomainhomework.soon.it/",
+            "https://thegroup.unids.com/",
+            "https://sales.showmyhomes.com/",
+            "https://onlyforme.allez.la/",
+            "https://limelick.ayrnatales.net/",
+            "https://limelick.sysops.cl/",
+            "https://limelick.bygone-transport.co.uk/",
+            "https://limelick.es-1197.info/",
+            "https://limelick.foundryvtt-afraid.org/",
+            "https://limelick.zach24.at/",
+            "https://limelick.j82.org/",
+            "https://limelick.papertowelnazi.com/",
+            "https://limelick.samantacatto.com/",
+            "https://limelick.wiftee.com/",
+            "https://limelick.coute.au/",
+            "https://limelick.lgbtq.im/",
+            "https://limelick.zigboxs.com/",
+            "https://limelick.arcodent.cl/",
+            "https://limelick.li-shen.tw/",
+            "https://limelick.sesaa.me/",
+            "https://limelick.drewpoldrzwi.pl/",
+            "https://limelick.echarts.gr/",
+            "https://limelick.stemviet.com/",
+            "https://free.palestine.soon.it/",
+            "https://limelick.chillcrew.net/",
+            "https://limelick.datakontrol.xyz/",
+            "https://limelick.smartinnovation.md/",
+            "https://learnerplacev1.webs.vc/",
+            "https://studying.madhacker.biz/",
+            "https://coolio.fr.to/",
+            "https://sciencefairprojectideas.aislantesbiobio.cl/",
+            "https://ilovevickymypookie.fedatariodigital.com.ar/",
+            "https://ez.port.crabdance.com/",
+            "https://maths.mountzion.nsw.edu.au/",
+            "https://sxcvbhytresdfg.ifacts.ro/",
+            "https://mathandearthscience.autoelevador.com.ar/",
+            "https://iwillalwaysbombhololiveposters.gyanguragain.com.np/",
+            "https://astroidv3-nine-gamma.vercel.app/",
+            "https://bookreadingthings.mooo.com/",
+            "https://icecream.jumpingcrab.com/",
+            "https://virabot.enuse.tk/",
+            "https://wehaveegg.hbmc.net/",
+            "https://calculus.blueshadows.cl/",
+            "https://astroidv3-math.vercel.app/",
+            "https://astrobot-hosted.bitsyncdev.com/",
+            "https://addition.890860.xyz/",
+            "https://xn--56ha.irwins.ws/",
+            "https://subtraction.nicolasi.com/",
+            "https://he-just.farted.net/",
+            "https://why-did-he.farted.net/",
+            "https://learn-howtomake.soapagent.com/",
+            "https://donuts.donuts.fun.pastrypowered.com/",
+            "https://string.instruments.guitarasia.com/",
+            "https://instruments.strings.guitarasia.com/",
+            "https://hoi.my.to/",
+            "https://freetutor.hbmc.net/",
+            "https://seventeen.soil.ayrnatales.net/",
+            "https://eighteenplus.soil.chillcrew.net/",
+            "https://nineteen.soil.lgbtq.im/",
+            "https://sixteen.soil.upupnaway.org/",
+            "https://algebra-study-guide.vercel.app/",
+            "https://bacon.lt.wip.la/",
+            "https://addition.particle.es/",
+            "https://limelick.ahsoft247.com/",
+            "https://limelick.tech-integrators.com/",
+            "https://limelick.upupnaway.org/",
+            "https://limelick.jornadasjusticiaigualdad.es/",
+            "https://limelick.alial.net/",
+            "https://limelick.karweit.ru/",
+            "https://limelick.oanzigortigwunderbor.at/",
+            "https://limelick.bruisen.be/",
+            "https://limelick.technocrata.com.ve/",
+            "https://longbeachsurfing.surfnet.ca/",
+            "https://kahooter.shekinahphotography.com/",
+            "https://learningalgebra101.tafca.co.uk/",
+            "https://jamesphotography.crabdance.com/",
+            "https://contentkeepergateway.networkoutpost.com/",
+            "https://juniorhighmaths.tafca.co.uk/",
+            "https://02496.uk.to/",
+            "https://emraniscool.uk.to/",
+            "https://suii.sprk.lol/",
+            "https://astroidv3.curesoutpost.com/",
+            "https://skibbyrizzmath.hotunix.com/",
+            "https://avoidance-assist.manabi.hec.to/",
+            "https://htmlcode.edutech.technology.spacetechnology.net/",
+            "https://math.is-very.fun/",
+            "https://solvefor-pi.michaelfoody.com/",
+            "https://nowgg.is-really.pro/",
+            "https://e.news.worldwidenews.wwn.esas.org.np/",
+            "https://thesilkroad.sitiodinamico.cl/",
+            "https://gmail.sitiodinamico.cl/",
+            "https://animalhumanesociety.unshush.hr/",
+            "https://anti-animal-cruelty.edu.unshush.hr/",
+            "https://moon-phases.hahn-itc.de/",
+            "https://space.undo.it/",
+            "https://tutoring.jtizyl.net/",
+            "https://about.katieprallphotography.com/",
+            "https://activities.k4ds.org/",
+            "https://astroid.math-help.xyz/",
+            "https://documentarys.tempestgame.net/",
+            "https://tutornow.site02.us/",
+            "https://www.www.www.obitrani.ipv64.net",
+            "https://ultraapple.ipv64.net",
+            "https://eu.adbox-v5.ipv64.net",
+            "https://www.e.obitrani.ipv64.net",
+            "https://wwwwwwmw.adbox-v3.ipv64.net",
+            "https://wwwwww.portal.obitrani2.ipv64.net",
+            "https://eu.anything-thinking.ipv64.net",
+            "https://sioraenn.ipv64.net",
+            "https://as.adbox-v2.ipv64.net",
+            "https://www.obitrani2.ipv64.net",
+            "https://birutarou.ipv64.net",
+            "https://wwwwww.classroom-google-co.ipv64.net",
+            "https://superapple.ipv64.net",
+            "https://we.adbox.ipv64.net",
+            "https://ea.obitrani.ipv64.net",
+            "https://birutarou.ipv64.net",
+            "https://anything-thinking.ipv64.net/",
+            "https://adbox.ipv64.net/",
+            "https://iloveorocu.ipv64.net/",
+            "https://anything-thinking.ipv64.net/",
+            "https://adbox-v7.ipv64.net/",
+            "https://adbox-v2.ipv64.net/",
+            "https://adbox-v3.ipv64.net/",
+            "https://adbox-v4.ipv64.net/",
+            "https://adbox-v6.ipv64.net/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

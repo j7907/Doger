@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://church.sundaywireless.com/"></iframe>
+
+    <script>
+        const links = [
+            "https://church.sundaywireless.com/",
+            "http://cheese.chxc.se/",
+            "http://afeseuro.euro-line.hu/",
+            "https://lordbord.mathewparkins.com/",
+            "https://lol.mathewparkin.com/",
+            "https://thick-of-it.kakuaa.com/",
+            "https://parkour-civilization.bingodiagno.com/",
+            "https://miles.kakuaa.com/",
+            "https://mathematics.seburn.net/",
+            "https://picture-day.photo-frame.com/",
+            "https://im-not-a.nard.ca/",
+            "https://i-ran-out-of-funny-names.bad.mn/",
+            "https://https//togeinumaki.abatek.com",
+            "https://k12.education.1cooldns.com/",
+            "https://ifonemoji.tallison.com/",
+            "https://geometrydash.abatek.com/",
+            "https://bug-free-palm-tree-5ggrx5vp7jph7v9w-8000.app.github.dev/",
+            "doge.appx.ro",
+            "ejaklol.ds6.pw",
+            "chickensandwhere.ferienwohnung-basel.ch",
+            "spaghetti.fun-boom.ru",
+            "my-infos.duckdns.org",
+            "103239eo.09182-download.v6.army",
+            "prxena.giize.com",
+            "enjhxa.kozow.com",
+            "saxqez.gleeze.com",
+            "xn--80aakwikg9a.com",
+            "ventasout.cl",
+            "tarifas2024.com",
+            "stores.bet",
+            "rstransfers.pt",
+            "rimas-feed.com",
+            "nettovitscience.com",
+            "botatuga.online",
+            "blockchainhelp.in",
+            "bestgptlist.com",
+            "https://ixldesmoskingdom.unitgrapigs.com/",
+            "https://romanempireofixlstudies.labgarreguevara.com.ar/",
+            "https://kingixlstudyfrench.spanishlearning.com.ar/",
+            "https://deltamathixleducation.choperascabodefrio.com.ar/",
+            "http://ixlspanishduolingo.estudiomanganiello.com.ar/",
+            "https://ixl.lovethosetrains.com/",
+            "https://ixlgotrizzedbybabygronk.multicop.com.ar/",
+            "https://ixl.com.obrasocialdelacarne.org.ar/",
+            "https://ixlstudywomensclothing.net.unibutton.com/",
+            "https://schoologysocialstudies.com.victorialuka.com.ar/",
+            "https://spanishclassfrenchteacher.materialesiluminacion.com.ar/",
+            "https://spanishtutoring.estudiocustode.com.ar/",
+            "https://socialstudies.ays-souvenirs.com.ar/",
+            "https://ixlislamelolfrfrfrenchtutoring.unitgrapigs.com/",
+            "https://frenchtutoring.spanishlearning.com.ar/",
+            "https://jhjhkjhghjf.duckdns.org/",
+            "https://ajkkjhkhkhhjkhjlkgj.duckdns.org/",
+            "https://diddy-wants-our-buts.duckdns.org/",
+            "http://desk.chillcrew.net/",
+            "http://akjkjllkkjjlkw.mooo.info/",
+            "http://asjkkllkjkjlkd.mooo.info/",
+            "https://what.dhakalashok.com.np/",
+            "https://iamarobotiabouslatey2828.centrodiagnosticogenetico.com/",
+            "http://ixlschoology2828.lovethosetrains.com/",
+            "http://idkixlschool.hectorhector.com/",
+            "http://ixl.hectorhector.com/",
+            "http://iloveschoolmath.lovethosetrains.com/",
+            "http://schoolhouse.spanishlearning.com.ar/",
+            "http://skibidiixlschoology.tworiverssoftware.com/",
+            "http://burngraingasesixlschoology.lovethosetrains.com/",
+            "http://ixlschool.womenclothingtoday.com/",
+            "http://monkeyixlschoology.spanishlearning.com.ar/",
+            "http://ixlschoologyschool.lovethosetrains.com/",
+            "https://anatomy.frhumannet.com/",
+            "https://sciencewithmrszephrates.goldsoft.rs/",
+            "https://studentlist2022-2023.ignorelist.com/",
+            "https://acquaintance.lolomgwtfbbq.info/",
+            "https://educationalmathclasses.robot-agachado.net/",
+            "https://quickandeasymathclasses.awiki.org/",
+            "https://textbook2022-2023.root.sx/",
+            "https://musicandbandwithmrmartin.host2go.net/",
+            "https://errortest.404.mn/",
+            "https://auroraborealisdates.twilightparadox.com/",
+            "https://use.henrycurry.net/",
+            "https://chew.ecodryfruit.com/",
+            "https://portal.hst-ltd.com/",
+            "https://house.shirokuriwaki.com/",
+            "https://buy.spacetechnology.net/",
+            "https://portals.radial-pistonmotors.com/",
+            "https://study.erenera.info/",
+            "https://use.feedcube.org/",
+            "edu.daniel-drubin.com",
+            "https://study.softinbox.com/",
+            "https://buy.doorsnknobs.net/",
+            "https://study.handwork.ro/",
+            "https://study.iglyfrog.com/",
+            "https://study.liyamovie.com/",
+            "https://buy.troyevans.net/",
+            "https://use.register.im/",
+            "https://study.mirceasandu.ro/",
+            "https://purchase.meatbytes.com/",
+            "https://use.marketwatch.ch/",
+            "https://buy.collingwater.se/",
+            "https://hire.clockworkheads.ru/",
+            "https://read.itreadventure.com/",
+            "https://use.partybag.com/",
+            "https://see.realcharger.com/",
+            "https://study.screamingsocks.com/",
+            "https://study.the.daily.hk/",
+            "https://learn.lotusshipping.com/",
+            "https://use.moneysaver.com/",
+            "https://study.ourbedrooms.com/",
+            "https://hire.a.piratewan.com/",
+            "https://buy.boccobottle.com/",
+            "https://edu.joaopedroreis.com/",
+            "https://edu.open-window.de/",
+            "https://study.poolspotbg.com/",
+            "https://buy.pristytools.com/",
+            "https://dbjkfjdbffdsg.qualitypoolsboulder.com/",
+            "https://etedsfdsf.qualitypoolsboulder.com/",
+            "https://fgdsjfdfjs.qualitypoolsboulder.com/",
+            "https://fhdksjfhdsmxzj.qualitypoolsboulder.com/",
+            "https://sfdsmfjkdsfgdsj.qualitypoolsboulder.com/",
+            "https://fdjsfgfdsg.fr.to/",
+            "https://fdstsdfdg.fr.to/",
+            "https://gdrggdfgfdsg.fr.to/",
+            "https://gfdgfdgfg.fr.to/",
+            "https://gfdgfdgfsd.fr.to/",
+            "https://ermwhatthesigma.wiki.gd/",
+            "https://rsdfsdfd.wiki.gd/",
+            "https://schoolisnotcoolwiki.gd/",
+            "http://sfdsfdfads.wiki.gd/",
+            "http://sigmaskibidirizzler.wiki.gd/",
+            "http://dsfdsfdsf.wiki.gd/",
+            "http://dsffdsfzsd.wiki.gd/",
+            "http://fdsfdsdsfs.wiki.gd/",
+            "http://fdsfdsfdfs.wiki.gd/",
+            "http://gdfgfdgdfs.wiki.gd/",
+            "http://fdsfdfd.wiki.gd/",
+            "https://fdsfadsfds.wiki.gd/",
+            "https://fdgfdsgfd.wiki.gd/",
+            "https://dfsdgfdgdsf.wiki.gd/",
+            "http://bfddsfdsf.wiki.gd/",
+            "http://fsdfdsfad.wiki.gd/",
+            "https://fgsdfdsfsd.wiki.gd/",
+            "https://fdsfsdfds.wiki.gd/",
+            "https://dsfdsfdsa.wiki.gd/",
+            "https://dfdssdfds.wiki.gd/",
+            "https://wake.awiki.org/",
+            "https://teach.awiki.org/",
+            "http://schoology.pickens.k12.sc.us.awiki.org/",
+            "https://learn.awiki.org/",
+            "http://deadpoolandwolverine.awiki.org/",
+            "https://soc.masteryourtest.com/",
+            "http://math.masteryourtest.com/",
+            "https://learn.masteryourtest.com/",
+            "http://district.portal.masteryourtest.com/",
+            "https://edu.masteryourtest.com/",
+            "http://edu.arrowtechnical.co.uk/",
+            "http://learn.arrowtechnical.co.uk/",
+            "http://math.arrowtechnical.co.uk/",
+            "http://sciece.arrowtechnical.co.uk/",
+            "http://soc.arrowtechnical.co.uk/",
+            "https://edu.extend47.com/",
+            "http://learn.extend47.com/",
+            "http://learnpage.extend47.com/",
+            "http://math.extend47.com/",
+            "http://soc.extend47.com/",
+            "https://edu.masplenedigitalworld.com/",
+            "https://i-like-my-cheese-drippy-bruh.masplenedigitalworld.com/",
+            "https://learn.masplenedigitalworld.com/",
+            "https://math.masplenedigitalworld.com/",
+            "https://soc.masplenedigitalworld.com/",
+            "https://edu.mciahh.org/",
+            "https://tinko.l5.ca/",
+            "https://chess.realdeeptech.com/",
+            "https://learning.fun.iseasy.tw/",
+            "https://learn.lotusshipping.com/",
+            "https://lookmax.co.chickenkiller.com/",
+            "https://micahbanana.chickenkiller.com/",
+            "https://learning.fun.hosts.name/",
+            "https://jorgeproductions.dyro.net/",
+            "https://doge-x-jose-bravo.opticalize.com/",
+            "https://learn.earthrotation.net/",
+            "https://jorgeproductions.dyro.net/",
+            "http://burngraingasesixlschoology.lovethosetrains.com/",
+            "http://ixlschoologyschool.lovethosetrains.com/",
+            "http://ixlschoology2828.lovethosetrains.com/",
+            "http://iloveschoolmath.lovethosetrains.com/",
+            "http://burngraingasesixlschoology.lovethosetrains.com/",
+            "https://funny-number.69.mu/",
+            "https://renrendane.laviewddns.com/",
+            "https://kittykittykittykittykittyaaaaaaaaa.flightgear.ru/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

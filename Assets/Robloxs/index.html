@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://ubgroblox.global.ssl.fastly.net/"></iframe>
+
+    <script>
+        const links = [
+            "https://ubgroblox.global.ssl.fastly.net/",
+            "https://mathstutor.life/",
+            "https://educationbluesky.com/",
+            "https://maths.news/",
+            "https://maths.media/",
+            "https://websitesball.com/",
+            "https://ngg.798sc.com/",
+            "https://hotkitchenbag.com/",
+            "https://websitesbridge.com/",
+            "https://mathsspot.com/",
+            "https://selfstudybrain.com/",
+            "https://universityequality.com/",
+            "https://websitebridge.com/",
+            "https://newalgebra.com/",
+            "https://virtualstudybrain.com/",
+            "https://acb.basketballrandom.net/demo/",
+            "https://xn--31byd1i.net/",
+            "https://nowgg.usercontent.motorcycles/",
+            "https://next-level.is-very.fun/",
+            "https://mathwork-for-science-class.tutorz0.usercontent.motorcycles/",
+            "https://shuttle.lol/apps/roblox-corporation/5349/roblox.html",
+            "https://hotkitchenbag.com/",
+            "https://v3.now.gg/",
+            "https://beta1.apktbg.com/demo",
+            "https://beta2.apktbg.com/demo",
+            "https://beta3.apktbg.com/demo",
+            "https://beta4.apktbg.com/demo",
+            "https://beta5.apktbg.com/demo",
+            "https://beta6.apktbg.com/demo",
+            "https://beta7.apktbg.com/demo"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

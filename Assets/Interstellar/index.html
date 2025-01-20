@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #sidebar button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar button:hover {
+            background-color: #777;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <button id="next">Next Link</button>
+        <button id="fullscreen">Fullscreen</button>
+    </div>
+    <iframe id="iframe" src="https://apache.niteryder.net/"></iframe>
+
+    <script>
+        const links = [
+            "https://apache.niteryder.net/",
+            "https://practice.odoobooks.com/",
+            "https://cloudbarfbagisback.saugatnepal.com.np/",
+            "https://x.e.adamandandrea.org",
+            "https://us1.cambrianscientific.com/",
+            "https://w.e.adamandandrea.org",
+            "https://stats.volkszaehler.org/",
+            "https://j.o.h4xxel.org",
+            "https://health.k4ds.org",
+            "https://delta.y.glenwaverleychurches.org",
+            "https://engines.chaosengines.net",
+            "https://beta.y.glenwaverleychurches.org/",
+            "https://c.gracemp.org",
+            "https://nationalgeographic.wiki/",
+            "https://meteor.newsofmaricopa.com/",
+            "https://ocean.lakeballs.fi",
+            "https://news.schoellerfamily.org",
+            "https://perspective.photography.backriverphotography.com",
+            "https://a.virg0.org",
+            "https://youth.prosports.cl/",
+            "https://acetaminophen.deleesportsmedicine.com/",
+            "https://ios.4webhelp.ca/",
+            "https://e.q.sagesinst.org",
+            "https://vision.photography.backriverphotography.com",
+            "https://h2o.lakeballs.fi",
+            "https://sunlight.sun.mountofoliveschurch.com",
+            "https://gravity.omniscien.cl",
+            "https://nebula.xyz.moochurch.com",
+            "https://api.cloud.rigaprecast.com/",
+            "https://s1.cambrianscientific.com",
+            "https://skillset.photography.backriverphotography.com",
+            "https://j0.icom.org.np",
+            "https://composition.photography.backriverphotography.com",
+            "https://backend.development.sanluix.org",
+            "https://test.sun.2of1.org",
+            "https://development.sanluix.org",
+            "https://sun.mountofoliveschurch.com",
+            "https://shot.photography.backriverphotography.com",
+            "https://dove.soapclient.com",
+            "https://s.j0.icom.org.np",
+            "https://m.c.gracemp.org",
+            "https://math.masteryourtest.com",
+            "https://aurora.xyz.moochurch.com",
+            "https://w.r.youngchurch.org",
+            "https://mystic.xyz.moochurch.com/",
+            "https://y.glenwaverleychurches.org",
+            "https://visual.photography.backriverphotography.com",
+            "https://sundown.sun.2of1.org",
+            "https://innovation.photography.backriverphotography.com",
+            "https://roundrockisd.online/",
+            "https://frysprinters.com/",
+            "https://alpha.y.glenwaverleychurches.org/",
+            "https://environmental.laws.tibetjustice.org/",
+            "https://books.michelleingah.com",
+            "https://x.a.ubiq.org",
+            "https://spacial-awareness.potomacriversafetycommittee.org",
+            "https://blog.cloud.rigaprecast.com",
+            "https://visuals.photography.backriverphotography.com",
+            "https://dove.soapagent.com",
+            "https://pies.tartsandcrafts.ca",
+            "https://gravity.sciencevictory.org/",
+            "https://hygiene.soapagent.com",
+            "https://docs.cloud.rigaprecast.com",
+            "https://safety-practices.rpvelectrics.com.au",
+            "https://harmony.xyz.moochurch.com",
+            "https://p.q.sagesinst.org",
+            "https://q.sagesinst.org",
+            "https://1.australianhuntermag.com.au",
+            "https://testing.development.sanluix.org",
+            "https://cultures.linexedu.eu",
+            "https://n.c.gracemp.org",
+            "https://x.o.h4xxel.org",
+            "https://editing.photography.backriverphotography.com",
+            "https://n2.e-karami.top",
+            "https://tools.development.sanluix.org",
+            "https://forum.cloud.rigaprecast.com/",
+            "https://antihistamines.medscience.cl",
+            "https://s.cambrianscientific.com",
+            "https://shutter.photography.backriverphotography.com",
+            "https://academy.photography.backriverphotography.com",
+            "https://masterclass.photography.backriverphotography.com",
+            "https://schoolmath.hop.sh/",
+            "https://farms.stentwood.com.au",
+            "https://spacial-awareness.potomacriversafetycommittee.org/",
+            "https://j.kayru.org",
+            "https://alpha.y.glenwaverleychurches.org",
+            "https://demo.cloud.rigaprecast.com",
+            "https://sunburst.sun.2of1.org",
+            "https://pose.photography.backriverphotography.com",
+            "https://exhibit.photography.backriverphotography.com",
+            "https://int.adepoju.org",
+            "https://einstein.lawson-engineers.co.uk/",
+            "https://mystic.xyz.moochurch.com",
+            "https://smart.loghomelights.com",
+            "https://i.businessrelay.co.za",
+            "https://edpuzzle.videospeed.cl/",
+            "https://shop.twinslist.org",
+            "https://basketball.prosports.cl",
+            "https://billing.cloud.rigaprecast.com",
+            "https://moment.photography.backriverphotography.com",
+            "https://photography.backriverphotography.com",
+            "https://image.photography.backriverphotography.com",
+            "https://e.d.2of1.org",
+            "https://focus.photography.backriverphotography.com",
+            "https://entrepreneurship.keybusinessconnection.com",
+            "https://artofphoto.photography.backriverphotography.com",
+            "https://e.tecteach.net",
+            "https://xp.x14n.org",
+            "https://database.development.sanluix.org/",
+            "https://x.j0.icom.org.np",
+            "https://workshop.precisewarehousing.com/"
+        ];
+
+        let currentIndex = 0;
+
+        const iframe = document.getElementById("iframe");
+        const nextButton = document.getElementById("next");
+        const fullscreenButton = document.getElementById("fullscreen");
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % links.length;
+            iframe.src = links[currentIndex];
+        });
+
+        fullscreenButton.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
