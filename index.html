@@ -202,6 +202,8 @@
             "/Doger/Assets/LightSpaceNight/index.html", "/Doger/Assets/Light/index.html"
         ];
 
+        let keyPresses = { 1: 0, 2: 0 }; // Track key presses for "1" and "2"
+
         function checkPassword() {
             const password = document.getElementById('passwordInput').value;
             if (validPasswords.includes(password)) {
@@ -236,6 +238,23 @@
             // Close the current tab after opening the new window
             window.close();
         }
+
+        // Listen for key presses (1 and 2) and open websites if pressed twice
+        window.addEventListener('keydown', function(event) {
+            if (event.key === '1') {
+                keyPresses[1]++;
+                if (keyPresses[1] === 2) {
+                    window.open('https://j7907.github.io/Monkey/', '_blank');
+                    keyPresses[1] = 0; // Reset count
+                }
+            } else if (event.key === '2') {
+                keyPresses[2]++;
+                if (keyPresses[2] === 2) {
+                    window.open('https://j7907.github.io/Cisco/', '_blank');
+                    keyPresses[2] = 0; // Reset count
+                }
+            }
+        });
     </script>
 </body>
 </html>
