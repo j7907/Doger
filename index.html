@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KYSFR</title>
-    <!-- Favicon -->
+    
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" type="image/png">
     <style>
-        /* General styles */
+        
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364); /* Space-like gradient */
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364); 
             color: white;
             background-size: cover;
             background-attachment: fixed;
@@ -29,7 +29,7 @@
             text-shadow: 0 0 10px #00bcd4;
         }
 
-        /* Button Container */
+        
         .button-container {
             display: flex;
             flex-wrap: wrap;
@@ -38,7 +38,7 @@
             margin: 40px 0;
         }
 
-        /* Buttons */
+        
         .game-button {
             padding: 12px 24px;
             font-size: 18px;
@@ -60,7 +60,7 @@
             box-shadow: 0 0 15px #00bcd4;
         }
 
-        /* Password Modal */
+        
         .password-modal {
             position: fixed;
             top: 0;
@@ -114,7 +114,7 @@
             background-color: #019aa8;
         }
 
-        /* Partners Section */
+        
         #partners {
             margin: 40px 0;
             padding: 20px;
@@ -142,7 +142,7 @@
 </head>
 <body>
 
-    <!-- Password Modal -->
+    
     <div class="password-modal" id="passwordModal">
         <div class="password-box">
             <h2>Enter Password</h2>
@@ -151,10 +151,10 @@
         </div>
     </div>
 
-    <!-- Title -->
+    
     <h1>KYSFR</h1>
 
-    <!-- Buttons -->
+    
     <div class="button-container" id="buttonContainer">
         <button class="game-button" id="button0" onclick="window.location.href = gameLinks[0];">Arsenic</button>
         <button class="game-button" id="button1" onclick="window.location.href = gameLinks[1];">AstroidV3</button>
@@ -178,7 +178,7 @@
         <button class="game-button" id="button19" onclick="window.location.href = gameLinks[19];">Light</button>
     </div>
 
-    <!-- Partners Section -->
+    
     <section id="partners">
         <h2>Our Partners</h2>
         <a href="https://discord.gg/nwkjpE5vAs">
@@ -202,7 +202,7 @@
             "/Doger/Assets/LightSpaceNight/index.html", "/Doger/Assets/Light/index.html"
         ];
 
-        let keyPresses = { 1: 0, 2: 0 }; // Track key presses for "1" and "2"
+        let keyPresses = { 1: 0, 2: 0 }; 
 
         function checkPassword() {
             const password = document.getElementById('passwordInput').value;
@@ -218,9 +218,9 @@
             }
         }
 
-        // Wait 3 seconds before running the openGame function
+        
         window.onload = function() {
-            setTimeout(openGame, 3000); // Delay for 3 seconds
+            openGame(); 
         }
 
         function openGame() {
@@ -235,23 +235,23 @@
 
             win.document.body.appendChild(iframe);
 
-            // Close the current tab after opening the new window
+            
             window.close();
         }
 
-        // Listen for key presses (1 and 2) and open websites if pressed twice
+        
         window.addEventListener('keydown', function(event) {
             if (event.key === '1') {
                 keyPresses[1]++;
                 if (keyPresses[1] === 2) {
                     window.open('https://j7907.github.io/Monkey/', '_blank');
-                    keyPresses[1] = 0; // Reset count
+                    keyPresses[1] = 0; 
                 }
             } else if (event.key === '2') {
                 keyPresses[2]++;
                 if (keyPresses[2] === 2) {
                     window.open('https://j7907.github.io/Cisco/', '_blank');
-                    keyPresses[2] = 0; // Reset count
+                    keyPresses[2] = 0; 
                 }
             }
         });
